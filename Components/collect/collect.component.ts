@@ -13,6 +13,7 @@ export class CollectComponent implements OnInit {
   test!:boolean;
   new_task_name: any = "";
   user_name: any = "";
+  email: any = "";
   clicked: boolean = false;
   date: Date = new Date();
   isValid!: boolean;
@@ -24,12 +25,13 @@ export class CollectComponent implements OnInit {
     this.myForm = new FormGroup({
       task_name: new FormControl(''),
       user_name: new FormControl(''),
-      new_task_name: new FormControl('')
+      new_task_name: new FormControl(''),
+      email: new FormControl('')
     });    
   }
 
   taskLength(): boolean {
-    if(this.myForm.value.user_name != "" && this.myForm.value.task_name != ""){
+    if(this.myForm.value.user_name != "" && this.myForm.value.task_name != ""  && this.myForm.value.email != ""){
         this.test = false;
     }else {
       this.test = true;
@@ -45,12 +47,14 @@ export class CollectComponent implements OnInit {
     this.myForm.reset(this.myForm.value.user_name, this.myForm.value.task_name);
     this.myForm.value.user_name = "";
     this.myForm.value.task_name = "";
+    this.myForm.value.email == "";
     
   }
 
   onDelete(): void {
     this.myForm.value.user_name = "";
     this.myForm.value.task_name = "";
+    this.myForm.value.email == "";
   }
 
   onUpdate(): void {
