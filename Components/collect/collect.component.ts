@@ -26,7 +26,7 @@ export class CollectComponent implements OnInit {
       task_name: new FormControl(''),
       user_name: new FormControl(''),
       new_task_name: new FormControl(''),
-      email: new FormControl('')
+      email: new FormControl('', [Validators.required, Validators.email])
     });    
   }
 
