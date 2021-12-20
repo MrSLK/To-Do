@@ -1,0 +1,47 @@
+<div class="doApp">
+    <h1>The {{title | uppercase}} Application</h1>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label>
+                Task Name:
+                <input formControlName="task_name" placeholder="Enter task name">
+            </label>
+        </div>
+        <div>
+            <label>
+                User Name:
+                <input formControlName="user_name" placeholder="Enter user name">
+                <br>
+            </label>
+            <br>
+            <div class="button">
+                <br>
+                <button class="btn btn-success" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="btn btn-warning" type="clear" (click)="onClear()">CLear</button>
+            </div>
+        </div>
+    
+    <div class="display" id="display" *ngIf="!taskLength()">
+        <br>
+        <h4>User '{{myForm.value.user_name | titlecase}}' has done task '{{myForm.value.task_name | titlecase}}' on the {{date |date}}</h4>
+        <br>
+        <label>
+            ========================================================
+            <br>
+            Want to edit your task? Enter the new task below
+            <br>
+            <input formControlName="new_task_name" placeholder="Enter new task name">
+        </label>
+        <br>
+        <button class="btn btn-primary" type="submit" (click)="onUpdate()">Update</button>
+
+        <br>
+        <label>
+            ========================================================
+            <br>
+            Want to delete? Click the button below!</label>
+        <br>
+        <button class="btn btn-danger" type="clear" (click)="onDelete()">Delete</button>
+  </div>
+</form>
+</div>
